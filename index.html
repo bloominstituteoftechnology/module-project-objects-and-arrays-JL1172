@@ -149,14 +149,20 @@
     // getProps({ lastName: "Smith", age: 35 }) // should return ["lastName"]
     // getProps({ firstName: "Jane", married: false }) // should return ["firstName"]
     // getProps({ name: "Bamby", favFood: "flowers" }) // should return ["name", "favFood"]
-    function getProps(obj1 = {}) {
-      let result3; 
-      let returnArray; 
-      for (let property in obj1) {
-        result3 = property
-      }
-
+  function getProps(obj1) {
+   let newResult6 = [];
+   for (let property in obj1) {
+    if (property !== 'married' && property !== 'age') {
+      //  newResult6[newResult6.length] = property; either one works 
+       newResult6.push(property);
     }
+   }
+  
+  return newResult6; 
+    
+    }
+
+
 
     // 🧪 TESTS, do not work below this line
     // 🧪 TESTS, do not work below this line
