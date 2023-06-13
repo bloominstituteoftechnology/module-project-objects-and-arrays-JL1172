@@ -50,8 +50,16 @@
     // 🧠 Examples of usage:
     // deletePrice({ item: "Tesla Model 3", price: 40000 }) // should return { item: "Tesla Model 3" }
     // deletePrice({ item: "Kobo Libra 2" }) // should return { item: "Kobo Libra 2", priceless: true }
-    function deletePrice() {
-
+    function deletePrice(object={}) {
+   
+    if (object.price === 0 || object.price) {
+          delete object.price 
+          return object; 
+    } else if ( !object.price) {
+          object.priceless = true;
+          //or object['priceless']=true;
+          return object;
+      }
     }
 
     // 👉 CHALLENGE 4
@@ -60,8 +68,14 @@
     // 🧠 Examples of usage:
     // evenList(['a']) // should return false
     // evenList(['a', 'b']) // should return true
-    function evenList(arr) {
-
+    function evenList(ray=[]) {
+    
+      if ((ray.length%2) === 0 ) {
+        return true ;
+      } else if ((ray.length%2)!==0) {
+        return false;
+      }
+    
     }
 
     // 👉 CHALLENGE 5
@@ -70,7 +84,13 @@
     // 🧠 Examples of usage:
     // firstOrLast(['a', 'b'], true) // should return 'a'
     // firstOrLast(['a', 'b'], false) // should return 'b'
-    function firstOrLast() {
+    function firstOrLast(anArray=[],boolean) {
+    
+      if (boolean) {
+        return anArray[0]; 
+      } else if (!boolean) {
+        return anArray.at(-1);
+      }
 
     }
 
@@ -80,9 +100,11 @@
     // 🧠 Examples of usage:
     // pushElement([], 1) // should return [1]
     // pushElement(['a', 'b'], 'c') // should return ['a', 'b', 'c']
-    function pushElement() {
-
-    }
+    function pushElement(secondArray=[],anyValue) {
+    
+      secondArray.push(anyValue);
+      return secondArray;
+    } 
 
     // 👉 CHALLENGE 7
     // 🧠 The function stripX takes a string as its argument.
@@ -96,8 +118,11 @@
     // 🧠 At each iteration of the loop, if the current character is not "x", then add it to the end of the result array.
     // 🧠 You can merge the result array back into a string by using join. Example: ["f", "o", "o"].join("") yields "foo"
     // 🧠 Do not forget to return your rejoined string!
-    function stripX() {
-
+    function stripX(string) {
+      let result;
+      result = string.replace(/x/g,'');
+      return result;
+      
     }
 
     // 👉 CHALLENGE 8
@@ -109,8 +134,10 @@
     // ❗ Important Notes:
     // 🧠 Try to solve this problem without looking at how you solved the previous one.
     // 🧠 If you need to look, do not copy & paste code. Take a peek and then work from memory!
-    function stripChar() {
-
+    function stripChar(string1,char1) {
+      let result1; 
+      result1 = string1.split(char1).join(""); 
+      return result1; 
     }
 
     // 👉 CHALLENGE 9
@@ -122,7 +149,12 @@
     // getProps({ lastName: "Smith", age: 35 }) // should return ["lastName"]
     // getProps({ firstName: "Jane", married: false }) // should return ["firstName"]
     // getProps({ name: "Bamby", favFood: "flowers" }) // should return ["name", "favFood"]
-    function getProps() {
+    function getProps(obj1 = {}) {
+      let result3; 
+      let returnArray; 
+      for (let property in obj1) {
+        result3 = property
+      }
 
     }
 
